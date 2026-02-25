@@ -1,0 +1,7 @@
+1:1 KW_IF "if"
+1:4 KW_WHILE "while"
+1:10 KW_INT "int"
+1:14 KW_RETURN "return"
+1:21 KW_TRUE "true"
+1:26 KW_FALSE "false"
+1:31 END_OF_FILE ""

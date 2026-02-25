@@ -1,0 +1,3 @@
+[console_scripts]
+minicompiler-lex = lexer.cli:main
+
