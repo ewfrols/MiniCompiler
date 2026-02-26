@@ -1,0 +1,7 @@
+1:1 KW_INT "int"
+1:5 IDENTIFIER "a"
+1:6 SEMICOLON ";"
+2:1 KW_INT "int"
+2:5 IDENTIFIER "b"
+2:6 SEMICOLON ";"
+2:7 END_OF_FILE ""

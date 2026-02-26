@@ -20,9 +20,10 @@ def scan_all_tokens(source: str):
     return tokens, scanner.errors
 
 def token_to_expected_string(tok):
-    """Преобразует токен в формат, используемый в .expected файлах."""
     base = f"{tok.line}:{tok.column} {tok.type.name} \"{tok.lexeme}\""
     if tok.literal is not None:
+        if tok.type == TokenType.STRING_LITERAL and tok.literal == "":
+            return base
         base += f" {tok.literal}"
     return base
 

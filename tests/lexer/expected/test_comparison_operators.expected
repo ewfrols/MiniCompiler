@@ -1,0 +1,7 @@
+1:1 OP_EQ "=="
+1:4 OP_NE "!="
+1:7 OP_LT "<"
+1:9 OP_LE "<="
+1:12 OP_GT ">"
+1:14 OP_GE ">="
+1:16 END_OF_FILE ""

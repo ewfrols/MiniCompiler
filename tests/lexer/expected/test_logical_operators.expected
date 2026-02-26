@@ -1,0 +1,4 @@
+1:1 OP_AND "&&"
+1:4 OP_OR "||"
+1:7 OP_NOT "!"
+1:8 END_OF_FILE ""

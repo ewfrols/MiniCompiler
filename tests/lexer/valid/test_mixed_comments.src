@@ -1,0 +1,2 @@
+// line comment
+int a = 5; /* block */ return a;
