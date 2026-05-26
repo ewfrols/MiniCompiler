@@ -1,5 +1,10 @@
 README.md
 setup.py
+src/ir/__init__.py
+src/ir/cli.py
+src/ir/generator.py
+src/ir/instructions.py
+src/ir/printer.py
 src/lexer/__init__.py
 src/lexer/cli.py
 src/lexer/errors.py
@@ -24,6 +29,7 @@ src/semantic/errors.py
 src/semantic/symbol_table.py
 src/semantic/type_system.py
 src/utils/__init__.py
+tests/test_ir.py
 tests/test_lexer.py
 tests/test_parser.py
 tests/test_semantic.py

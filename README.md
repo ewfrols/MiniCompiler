@@ -9,14 +9,17 @@ MiniCompiler/
 ├── src/
 │   ├── lexer/          # Спринт 1: лексер (токенизатор)
 │   ├── miniparser/     # Спринт 2: рекурсивный спуск, AST, printer
-│   └── semantic/       # Спринт 3: семантический анализ, таблица символов
+│   ├── semantic/       # Спринт 3: семантический анализ, таблица символов
+│   └── ir/             # Спринт 4: промежуточное представление (IR)
 ├── tests/
 │   ├── lexer/          # valid / invalid / expected для лексера
 │   ├── parser/         # valid / invalid / expected для парсера
 │   ├── semantic/       # valid / invalid для семантики
+│   ├── ir/             # valid для IR
 │   ├── test_lexer.py
 │   ├── test_parser.py
-│   └── test_semantic.py
+│   ├── test_semantic.py
+│   └── test_ir.py
 ├── docs/
 │   └── grammar.ebnf    # EBNF-грамматика языка
 ├── examples/           # Примеры .src файлов
@@ -62,6 +65,22 @@ minicompiler-check --input examples/hello.src --output symbols.txt
 
 # Дополнительно показать типы выражений
 minicompiler-check --input examples/hello.src --show-types
+```
+
+### Генерация IR
+
+```bash
+# Текстовый IR (по умолчанию)
+minicompiler-ir --input examples/hello.src
+
+# Сохранить IR в файл
+minicompiler-ir --input examples/hello.src --output program.ir
+
+# Граф потока управления в Graphviz DOT
+minicompiler-ir --input examples/hello.src --format dot --output cfg.dot
+
+# Показать статистику
+minicompiler-ir --input examples/hello.src --stats
 ```
 
 ## Тесты

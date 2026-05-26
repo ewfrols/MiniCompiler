@@ -1,4 +1,5 @@
 [console_scripts]
 minicompiler-check = semantic.cli:main
+minicompiler-ir = ir.cli:main
 minicompiler-lex = lexer.cli:main
 minicompiler-parse = miniparser.cli:main

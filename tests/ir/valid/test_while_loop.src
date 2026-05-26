@@ -1,0 +1,9 @@
+fn sum_to(int n) : int {
+    int total = 0;
+    int i = 1;
+    while (i <= n) {
+        total += i;
+        i += 1;
+    }
+    return total;
+}

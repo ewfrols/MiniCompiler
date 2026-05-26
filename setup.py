@@ -10,6 +10,7 @@ setup(
             "minicompiler-lex = lexer.cli:main",
             "minicompiler-parse = miniparser.cli:main",
             "minicompiler-check = semantic.cli:main",
+            "minicompiler-ir = ir.cli:main",
         ],
     },
     install_requires=[],

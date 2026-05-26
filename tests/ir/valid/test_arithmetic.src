@@ -1,0 +1,4 @@
+fn compute(int a, int b) : int {
+    int result = a + b * 2;
+    return result;
+}
