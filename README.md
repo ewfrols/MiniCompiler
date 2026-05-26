@@ -1,29 +1,67 @@
-# MiniCompiler – Sprint 1: Лексический анализатор
+# MiniCompiler
 
-Учебный проект компилятора для упрощённого C-подобного языка.  
-Цель первого спринта: реализовать лексер (токенизатор) с поддержкой комментариев и препроцессора (опционально).
+Учебный проект: компилятор для упрощённого C-подобного языка на Python.
 
 ## Структура проекта
-├── src/ # Исходный код
-│ ├── lexer/ # Лексер
-│ └── utils/ # Вспомогательные модули
-├── tests/ # Тесты
-│ ├── lexer/ # Тесты лексера (valid, invalid, expected)
-│ └── test_lexer.py
-├── examples/ # Примеры программ
-├── docs/ # Документация
-├── setup.py # Установка пакета
-├── pyproject.toml # Альтернативный конфиг
+
+```
+MiniCompiler/
+├── src/
+│   ├── lexer/          # Спринт 1: лексер (токенизатор)
+│   └── miniparser/     # Спринт 2: рекурсивный спуск, AST, printer
+├── tests/
+│   ├── lexer/          # valid / invalid / expected для лексера
+│   ├── parser/         # valid / invalid / expected для парсера
+│   ├── test_lexer.py
+│   └── test_parser.py
+├── docs/
+│   └── grammar.ebnf    # EBNF-грамматика языка
+├── examples/           # Примеры .src файлов
+├── setup.py
 └── requirements-dev.txt
+```
 
-## Установка и запуск
+## Установка
 
-1. Клонируйте репозиторий.
-2. (Рекомендуется) Создайте виртуальное окружение:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # Linux/Mac
-   venv\Scripts\activate     # Windows
+```bash
+python -m venv venv
+venv\Scripts\activate      # Windows
+# source venv/bin/activate  # Linux/Mac
 pip install -e .[dev]
+```
+
+## Использование
+
+### Лексер
+
+```bash
 minicompiler-lex --input examples/hello.src --output tokens.txt
+```
+
+### Парсер
+
+```bash
+# Текстовый AST (по умолчанию)
+minicompiler-parse --input examples/hello.src --output tree.ast
+
+# Graphviz DOT
+minicompiler-parse --input examples/hello.src --output tree.dot --ast-format dot
+```
+
+## Тесты
+
+```bash
 pytest tests/
+```
+
+## Грамматика (краткая)
+
+```ebnf
+program     = { declaration } EOF ;
+declaration = fn_decl | struct_decl | var_decl | statement ;
+fn_decl     = "fn" IDENTIFIER "(" [params] ")" [":" type] block ;
+var_decl    = type IDENTIFIER ["=" expression] ";" ;
+statement   = block | if_stmt | while_stmt | for_stmt | return_stmt | expr_stmt ;
+```
+
+Полная грамматика с приоритетами операторов: [docs/grammar.ebnf](docs/grammar.ebnf)

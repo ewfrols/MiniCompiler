@@ -1,0 +1,94 @@
+(* MiniCompiler Grammar — EBNF Notation *)
+(* Sprint 2: Recursive-descent parser target *)
+
+(* ── Top level ────────────────────────────────────────────────────────── *)
+
+program        = { declaration } EOF ;
+
+declaration    = fn_decl
+               | struct_decl
+               | var_decl
+               | statement ;
+
+(* ── Declarations ─────────────────────────────────────────────────────── *)
+
+fn_decl        = "fn" IDENTIFIER "(" [ params ] ")" [ ":" type ] block ;
+params         = param { "," param } ;
+param          = type IDENTIFIER ;
+
+var_decl       = type IDENTIFIER [ "=" expression ] ";" ;
+
+struct_decl    = "struct" IDENTIFIER "{" { struct_field } "}" ;
+struct_field   = type IDENTIFIER ";" ;
+
+type           = "int" | "float" | "bool" | "void" | IDENTIFIER ;
+
+(* ── Statements ───────────────────────────────────────────────────────── *)
+
+statement      = block
+               | if_stmt
+               | while_stmt
+               | for_stmt
+               | return_stmt
+               | expr_stmt ;
+
+block          = "{" { declaration } "}" ;
+
+if_stmt        = "if" "(" expression ")" statement [ "else" statement ] ;
+
+while_stmt     = "while" "(" expression ")" statement ;
+
+for_stmt       = "for" "(" for_init expression ";" [ expression ] ")" statement ;
+for_init       = var_decl              (* consumes trailing ";" *)
+               | expression ";"
+               | ";" ;                 (* empty init *)
+
+return_stmt    = "return" [ expression ] ";" ;
+
+expr_stmt      = expression ";" ;
+
+(* ── Expressions — operator precedence (lowest → highest) ────────────── *)
+
+expression     = assignment ;
+
+(* Right-associative *)
+assignment     = IDENTIFIER assign_op assignment
+               | logical_or ;
+assign_op      = "=" | "+=" | "-=" | "*=" | "/=" ;
+
+(* Left-associative *)
+logical_or     = logical_and { "||" logical_and } ;
+logical_and    = equality    { "&&" equality    } ;
+equality       = comparison  { ( "==" | "!=" ) comparison  } ;
+comparison     = addition    { ( "<"  | "<=" | ">" | ">=" ) addition } ;
+addition       = multiplication { ( "+" | "-" ) multiplication } ;
+multiplication = unary          { ( "*" | "/" | "%" ) unary      } ;
+
+(* Right-associative *)
+unary          = ( "!" | "-" ) unary
+               | call ;
+
+call           = primary [ "(" [ args ] ")" ] ;
+args           = expression { "," expression } ;
+
+primary        = INT_LITERAL
+               | FLOAT_LITERAL
+               | STRING_LITERAL
+               | "true"
+               | "false"
+               | IDENTIFIER
+               | "(" expression ")" ;
+
+(* ── Operator precedence summary (highest to lowest) ─────────────────── *)
+(*
+  1. primary          literals, identifiers, grouped expressions
+  2. call             f(args)
+  3. unary            !, -                        (right-associative)
+  4. multiplication   *, /, %                     (left-associative)
+  5. addition         +, -                        (left-associative)
+  6. comparison       <, <=, >, >=                (left-associative)
+  7. equality         ==, !=                      (left-associative)
+  8. logical_and      &&                          (left-associative)
+  9. logical_or       ||                          (left-associative)
+  10. assignment      =, +=, -=, *=, /=           (right-associative)
+*)

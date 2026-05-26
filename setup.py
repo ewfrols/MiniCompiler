@@ -8,6 +8,7 @@ setup(
     entry_points={
         "console_scripts": [
             "minicompiler-lex = lexer.cli:main",
+            "minicompiler-parse = miniparser.cli:main",
         ],
     },
     install_requires=[],

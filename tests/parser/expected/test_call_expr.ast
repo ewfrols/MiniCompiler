@@ -1,0 +1,7 @@
+Program
+  FnDecl name=main return_type=void
+    Block
+      VarDecl type=int name=result
+        CallExpr name=add
+          IntLiteral value=1
+          IntLiteral value=2

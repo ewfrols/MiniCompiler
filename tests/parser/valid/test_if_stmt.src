@@ -1,0 +1,7 @@
+fn check(int x): bool {
+    if (x > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}

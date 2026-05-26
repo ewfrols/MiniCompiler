@@ -1,0 +1,13 @@
+Program
+  FnDecl name=calc return_type=int
+    Block
+      ReturnStmt
+        BinaryExpr op=-
+          BinaryExpr op=+
+            IntLiteral value=1
+            BinaryExpr op=*
+              IntLiteral value=2
+              IntLiteral value=3
+          BinaryExpr op=/
+            IntLiteral value=4
+            IntLiteral value=2

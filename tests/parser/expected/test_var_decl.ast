@@ -1,0 +1,6 @@
+Program
+  VarDecl type=int name=x
+    IntLiteral value=42
+  VarDecl type=float name=y
+  VarDecl type=bool name=flag
+    BoolLiteral value=True

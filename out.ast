@@ -1,0 +1,9 @@
+Program
+  FnDecl name=add return_type=int
+    Param type=int name=a
+    Param type=int name=b
+    Block
+      ReturnStmt
+        BinaryExpr op=+
+          Identifier name=a
+          Identifier name=b

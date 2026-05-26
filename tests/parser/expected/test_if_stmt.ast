@@ -1,0 +1,14 @@
+Program
+  FnDecl name=check return_type=bool
+    Param type=int name=x
+    Block
+      IfStmt
+        BinaryExpr op=>
+          Identifier name=x
+          IntLiteral value=0
+        Block
+          ReturnStmt
+            BoolLiteral value=True
+        Block
+          ReturnStmt
+            BoolLiteral value=False

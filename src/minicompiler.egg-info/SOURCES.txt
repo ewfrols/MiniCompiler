@@ -11,5 +11,12 @@ src/minicompiler.egg-info/dependency_links.txt
 src/minicompiler.egg-info/entry_points.txt
 src/minicompiler.egg-info/requires.txt
 src/minicompiler.egg-info/top_level.txt
+src/miniparser/__init__.py
+src/miniparser/ast_nodes.py
+src/miniparser/cli.py
+src/miniparser/errors.py
+src/miniparser/parser.py
+src/miniparser/printer.py
 src/utils/__init__.py
 tests/test_lexer.py
+tests/test_parser.py

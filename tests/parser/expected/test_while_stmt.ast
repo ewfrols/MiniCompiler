@@ -1,0 +1,13 @@
+Program
+  FnDecl name=loop return_type=void
+    Block
+      VarDecl type=int name=i
+        IntLiteral value=0
+      WhileStmt
+        BinaryExpr op=<
+          Identifier name=i
+          IntLiteral value=10
+        Block
+          ExprStmt
+            AssignExpr op=+= target=i
+              IntLiteral value=1

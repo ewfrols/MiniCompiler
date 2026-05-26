@@ -1,0 +1,16 @@
+Program
+  FnDecl name=main return_type=void
+    Block
+      ForStmt
+        VarDecl type=int name=i
+          IntLiteral value=0
+        BinaryExpr op=<
+          Identifier name=i
+          IntLiteral value=10
+        AssignExpr op== target=i
+          BinaryExpr op=+
+            Identifier name=i
+            IntLiteral value=1
+        Block
+          VarDecl type=int name=x
+            Identifier name=i

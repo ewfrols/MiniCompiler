@@ -1,0 +1,7 @@
+fn negate(int x): int {
+    return -x;
+}
+
+fn not_bool(bool b): bool {
+    return !b;
+}

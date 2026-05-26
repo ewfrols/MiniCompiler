@@ -1,0 +1,13 @@
+Program
+  FnDecl name=negate return_type=int
+    Param type=int name=x
+    Block
+      ReturnStmt
+        UnaryExpr op=-
+          Identifier name=x
+  FnDecl name=not_bool return_type=bool
+    Param type=bool name=b
+    Block
+      ReturnStmt
+        UnaryExpr op=!
+          Identifier name=b

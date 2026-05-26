@@ -1,0 +1,2 @@
+fn foo(int, bool b): void {
+}
