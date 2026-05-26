@@ -1,0 +1,7 @@
+fn greet(bool flag) : void {
+    return;
+}
+
+fn main() : void {
+    greet(42);
+}

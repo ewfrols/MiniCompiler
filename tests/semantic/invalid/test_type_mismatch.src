@@ -1,0 +1,3 @@
+fn foo() : void {
+    int x = 3.14;
+}

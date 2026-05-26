@@ -17,6 +17,13 @@ src/miniparser/cli.py
 src/miniparser/errors.py
 src/miniparser/parser.py
 src/miniparser/printer.py
+src/semantic/__init__.py
+src/semantic/analyzer.py
+src/semantic/cli.py
+src/semantic/errors.py
+src/semantic/symbol_table.py
+src/semantic/type_system.py
 src/utils/__init__.py
 tests/test_lexer.py
 tests/test_parser.py
+tests/test_semantic.py

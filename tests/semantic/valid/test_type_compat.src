@@ -1,0 +1,4 @@
+fn compute(int a, float b) : float {
+    float result = a + b;
+    return result;
+}

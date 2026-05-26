@@ -1,3 +1,4 @@
 lexer
 miniparser
+semantic
 utils

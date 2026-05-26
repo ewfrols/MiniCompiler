@@ -8,12 +8,15 @@
 MiniCompiler/
 ├── src/
 │   ├── lexer/          # Спринт 1: лексер (токенизатор)
-│   └── miniparser/     # Спринт 2: рекурсивный спуск, AST, printer
+│   ├── miniparser/     # Спринт 2: рекурсивный спуск, AST, printer
+│   └── semantic/       # Спринт 3: семантический анализ, таблица символов
 ├── tests/
 │   ├── lexer/          # valid / invalid / expected для лексера
 │   ├── parser/         # valid / invalid / expected для парсера
+│   ├── semantic/       # valid / invalid для семантики
 │   ├── test_lexer.py
-│   └── test_parser.py
+│   ├── test_parser.py
+│   └── test_semantic.py
 ├── docs/
 │   └── grammar.ebnf    # EBNF-грамматика языка
 ├── examples/           # Примеры .src файлов
@@ -46,6 +49,19 @@ minicompiler-parse --input examples/hello.src --output tree.ast
 
 # Graphviz DOT
 minicompiler-parse --input examples/hello.src --output tree.dot --ast-format dot
+```
+
+### Семантический анализ
+
+```bash
+# Проверка и вывод таблицы символов в stdout
+minicompiler-check --input examples/hello.src
+
+# Сохранить таблицу символов в файл
+minicompiler-check --input examples/hello.src --output symbols.txt
+
+# Дополнительно показать типы выражений
+minicompiler-check --input examples/hello.src --show-types
 ```
 
 ## Тесты

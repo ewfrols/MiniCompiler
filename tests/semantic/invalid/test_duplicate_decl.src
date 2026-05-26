@@ -1,0 +1,4 @@
+fn foo() : void {
+    int x = 1;
+    int x = 2;
+}

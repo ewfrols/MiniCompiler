@@ -1,0 +1,14 @@
+fn check(int n) : bool {
+    if (n > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+fn count() : void {
+    int i = 0;
+    while (i < 10) {
+        i += 1;
+    }
+}
